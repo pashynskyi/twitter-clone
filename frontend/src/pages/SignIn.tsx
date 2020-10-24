@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, makeStyles, Typography } from '@material-ui/core';
+import { makeStyles, Typography, Button } from '@material-ui/core';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import SearchIcon from '@material-ui/icons/Search';
 import PeopleIcon from '@material-ui/icons/PeopleOutline';
@@ -8,7 +8,6 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import { ModalBlock } from '../components/ModalBlock';
-
 
 export const useStylesSignIn = makeStyles((theme) => ({
   wrapper: {
@@ -26,11 +25,11 @@ export const useStylesSignIn = makeStyles((theme) => ({
   },
   blueSideBigIcon: {
     position: 'absolute',
-    left: '70%',
-    top: '45%',
+    left: '50%',
+    top: '53%',
     transform: 'translate(-50%, -50%)',
-    width: '300%',
-    height: '300%',
+    width: '260%',
+    height: '260%',
   },
   blueSideListInfo: {
     position: 'relative',
@@ -43,7 +42,7 @@ export const useStylesSignIn = makeStyles((theme) => ({
       alignItems: 'center',
       color: 'white',
       fontWeight: 700,
-      fontSize: 19,
+      fontSize: 20,
     },
   },
   blueSideListInfoItem: {
@@ -67,8 +66,8 @@ export const useStylesSignIn = makeStyles((theme) => ({
   },
   loginSideTitle: {
     fontWeight: 700,
-    fontSize: 30,
-    marginBottom: 45,
+    fontSize: 32,
+    marginBottom: 60,
     marginTop: 20,
   },
   loginSideField: {
@@ -98,14 +97,10 @@ export const SignIn: React.FC = (): React.ReactElement => {
     setVisibleModal(undefined);
   };
 
-
   return (
     <div className={classes.wrapper}>
       <section className={classes.blueSide}>
-        <TwitterIcon
-          className={classes.blueSideBigIcon}
-          color="primary"
-        />
+        <TwitterIcon color="primary" className={classes.blueSideBigIcon} />
         <ul className={classes.blueSideListInfo}>
           <li className={classes.blueSideListInfoItem}>
             <Typography variant="h6">
@@ -129,35 +124,23 @@ export const SignIn: React.FC = (): React.ReactElement => {
       </section>
       <section className={classes.loginSide}>
         <div className={classes.loginSideWrapper}>
-          <TwitterIcon
-            className={classes.loginSideTwitterIcon}
-            color="primary"
-          />
-          <Typography
-            className={classes.loginSideTitle}
-            gutterBottom
-            variant="h4"
-          >
+          <TwitterIcon color="primary" className={classes.loginSideTwitterIcon} />
+          <Typography className={classes.loginSideTitle} gutterBottom variant="h4">
             Узнайте, что происходит в мире прямо сейчас
           </Typography>
-          <Typography style={{ marginBottom: 20 }}>
+          <Typography>
             <b>Присоединяйтесь к Твиттеру прямо сейчас!</b>
           </Typography>
+          <br />
           <Button
             onClick={handleClickOpenSignUp}
-            style={{ marginBottom: 15 }}
+            style={{ marginBottom: 20 }}
             variant="contained"
             color="primary"
-            fullWidth
-          >
+            fullWidth>
             Зарегистрироваться
           </Button>
-          <Button
-            onClick={handleClickOpenSignIn}
-            variant="outlined"
-            color="primary"
-            fullWidth
-          >
+          <Button onClick={handleClickOpenSignIn} variant="outlined" color="primary" fullWidth>
             Войти
           </Button>
           <ModalBlock
@@ -165,11 +148,7 @@ export const SignIn: React.FC = (): React.ReactElement => {
             onClose={handleCloseModal}
             classes={classes}
             title="Войти в аккаунт">
-            <FormControl
-              className={classes.loginFormControl}
-              component="fieldset"
-              fullWidth
-            >
+            <FormControl className={classes.loginFormControl} component="fieldset" fullWidth>
               <FormGroup aria-label="position" row>
                 <TextField
                   className={classes.loginSideField}
@@ -195,12 +174,7 @@ export const SignIn: React.FC = (): React.ReactElement => {
                   type="password"
                   fullWidth
                 />
-                <Button
-                  onClick={handleCloseModal}
-                  variant="contained"
-                  color="primary"
-                  fullWidth
-                >
+                <Button onClick={handleCloseModal} variant="contained" color="primary" fullWidth>
                   Войти
                 </Button>
               </FormGroup>
@@ -211,11 +185,7 @@ export const SignIn: React.FC = (): React.ReactElement => {
             onClose={handleCloseModal}
             classes={classes}
             title="Создайте учетную запись">
-            <FormControl
-              className={classes.loginFormControl}
-              component="fieldset"
-              fullWidth
-            >
+            <FormControl className={classes.loginFormControl} component="fieldset" fullWidth>
               <FormGroup aria-label="position" row>
                 <TextField
                   className={classes.registerField}
@@ -253,11 +223,7 @@ export const SignIn: React.FC = (): React.ReactElement => {
                   type="password"
                   fullWidth
                 />
-                <Button
-                  variant="contained"
-                  color="primary"
-                  fullWidth
-                >
+                <Button variant="contained" color="primary" fullWidth>
                   Далее
                 </Button>
               </FormGroup>
@@ -266,5 +232,5 @@ export const SignIn: React.FC = (): React.ReactElement => {
         </div>
       </section>
     </div>
-  )
-} 
+  );
+};
